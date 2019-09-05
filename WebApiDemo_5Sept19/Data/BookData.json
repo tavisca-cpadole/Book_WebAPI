@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "price": 40,
+    "name": "Book #1",
+    "author": "Neelesh",
+    "category": "Fiction"
+  },
+  {
+    "id": 2,
+    "price": 700,
+    "name": "Book #2",
+    "author": "Ashvin",
+    "category": "Drama"
+  },
+  {
+    "id": 3,
+    "price": 201,
+    "name": "Book #3",
+    "author": "Manan",
+    "category": "Romance"
+  },
+  {
+    "id": 5,
+    "price": 420,
+    "name": "Book #5",
+    "author": "Yagyansh",
+    "category": "Sports"
+  }
+]

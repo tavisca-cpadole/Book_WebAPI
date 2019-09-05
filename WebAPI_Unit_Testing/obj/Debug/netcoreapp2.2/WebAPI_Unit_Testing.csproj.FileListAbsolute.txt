@@ -1,0 +1,17 @@
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebAPI_Unit_Testing.deps.json
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebAPI_Unit_Testing.runtimeconfig.json
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebAPI_Unit_Testing.runtimeconfig.dev.json
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebAPI_Unit_Testing.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebAPI_Unit_Testing.pdb
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebApiDemo_5Sept19.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\bin\Debug\netcoreapp2.2\WebApiDemo_5Sept19.pdb
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.csprojAssemblyReference.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.csproj.CoreCompileInputs.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.AssemblyInfoInputs.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.AssemblyInfo.cs
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.csproj.CopyComplete
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebAPI_Unit_Testing\obj\Debug\netcoreapp2.2\WebAPI_Unit_Testing.pdb
