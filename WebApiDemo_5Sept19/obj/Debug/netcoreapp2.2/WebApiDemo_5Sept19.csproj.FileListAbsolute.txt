@@ -3,7 +3,6 @@ C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\bin\Debug\ne
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\bin\Debug\netcoreapp2.2\WebApiDemo_5Sept19.runtimeconfig.dev.json
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\bin\Debug\netcoreapp2.2\WebApiDemo_5Sept19.dll
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\bin\Debug\netcoreapp2.2\WebApiDemo_5Sept19.pdb
-C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.csprojAssemblyReference.cache
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.csproj.CoreCompileInputs.cache
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.RazorAssemblyInfo.cache
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.RazorAssemblyInfo.cs

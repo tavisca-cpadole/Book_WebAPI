@@ -28,17 +28,15 @@ namespace WebAPI_Unit_Testing
         }
 
         [Fact]
-        public void Check_If_Complete_Data_Returned_With_Id()
+        public void Check_If_Only_Book_Data_Returned_With_Id()
         {
-
-
             List<string> serverMessageList = new List<string>();
             List<Book> books = new List<Book>() {
                new Book("Book #1","Neelesh",1,40,"Fiction") };
             LoadJson();
 
-            var expectedBook = new Response(bookList, serverMessageList);
-            var actualBook = new BookService().get();
+            var expectedBook = new Response(books, serverMessageList);
+            var actualBook = new BookService().get(1);
             Assert.Equal(expectedBook.ToString(), actualBook.ToString());
         }
 
@@ -85,12 +83,10 @@ namespace WebAPI_Unit_Testing
     public class PostMethodTest
     {
         List<Book> bookList = new List<Book>();
-
+        public Book book_to_add = new Book("Harry Potter", "Chinmay", 99, 90, "Horror");
         [Fact]
         public void Check_If_Invalid_Object_Is_Passed()
         {
-
-
             List<string> serverMessageList = new List<string>() { "Invalid Data is passed" };
             LoadJson();
             var expectedBook = new Response(bookList, serverMessageList);
@@ -99,11 +95,20 @@ namespace WebAPI_Unit_Testing
         }
 
         [Fact]
+        public void Check_If_Book_Is_Added_For_Valid_Object()
+        {
+            List<string> serverMessageList = new List<string>() { "Book Added" };
+
+            var actualBook = new BookService().post(book_to_add);
+            LoadJson();
+            var expectedBook = new Response(bookList, serverMessageList);
+            Assert.Equal(expectedBook.ToString(), actualBook.ToString());
+        }
+
+        [Fact]
         public void Check_If_Id_Already_Exists()
         {
             List<string> serverMessageList = new List<string>() { "Data redundant" };
-            List<Book> books = new List<Book>() {
-               new Book("Book #1","Neelesh",1,40,"Fiction") };
             LoadJson();
 
             var expectedBook = new Response(bookList, serverMessageList);
@@ -140,7 +145,17 @@ namespace WebAPI_Unit_Testing
             Assert.Equal(expectedBook.ToString(), actualBook.ToString());
         }
 
+        [Fact]
+        public void Check_If_Book_Data_Updated_For_Correct_Id()
+        {
 
+
+            List<string> serverMessageList = new List<string>() { "Updated" };
+
+            var expectedBook = new Response(new List<Book>() { new Book("Book #1", "Neelesh", 1, 40, "Non-Fiction") }, serverMessageList);
+            var actualBook = new BookService().put(new Book("Book #1", "Neelesh", 1, 40, "Non-Fiction"));
+            Assert.Equal(expectedBook.ToString(), actualBook.ToString());
+        }
 
         public void LoadJson()
         {

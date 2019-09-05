@@ -24,9 +24,10 @@ namespace WebApiDemo_5Sept19
             }
         }
 
-        public Response GetResponse()
+        public Response GetResponse(List<Book> books = null)
         {
-            //Debug.WriteLine("\n\n" + bookList.Count);
+            if (books != null)
+                return new Response(books, serverMessageList);
             return new Response(bookList, serverMessageList);
         }
         public Response delete(int id)
@@ -46,19 +47,33 @@ namespace WebApiDemo_5Sept19
 
         public Response get(int id)
         {
-
+            List<Book> output = new List<Book>();
             foreach (var item in bookList)
                 if (item.id == id)
+                {
+                    output.Add(item);
                     serverMessageList.Add(item.name);
+                }
             if (serverMessageList.Count == 0)
                 serverMessageList.Add("Item Not Found");
 
-            return GetResponse();
+            return GetResponse(output);
         }
 
         public Response post(Book book)
         {
-            if (!bookList.Contains(book))
+            bool compare = false;
+            var jsonString = JsonConvert.SerializeObject(book);
+            //var book_serialize = book.Serialize();
+            foreach (var item in bookList)
+            {
+                if (JsonConvert.SerializeObject(item).Equals(jsonString))
+                {
+                    compare = true;
+                    break;
+                }
+            }
+            if (compare)
             {
                 bookList.Add(book);
                 SaveJson();
@@ -76,6 +91,7 @@ namespace WebApiDemo_5Sept19
         public Response put(Book book)
         {
             // bookList = bookList.Where(b => b.id == id)?.Select(b => { b = book; return b; }).ToList() ?? bookList;
+            List<Book> output = new List<Book>();
             for (int i = 0; i < bookList.Count; i++)
                 if (bookList[i].id == book.id)
                 {
@@ -84,13 +100,13 @@ namespace WebApiDemo_5Sept19
                     bookList[book.id].price = book.price;
                     bookList[book.id].name = book.name;
                     SaveJson();
-
+                    output.Add(book);
                     serverMessageList.Add("Updated");
                 }
             if (serverMessageList.Count == 0)
                 serverMessageList.Add("Invalid Id");
 
-            return GetResponse();
+            return GetResponse(output);
 
         }
 
