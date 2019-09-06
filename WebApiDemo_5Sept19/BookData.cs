@@ -63,17 +63,15 @@ namespace WebApiDemo_5Sept19
         public Response post(Book book)
         {
             bool compare = false;
-            var jsonString = JsonConvert.SerializeObject(book);
-            //var book_serialize = book.Serialize();
             foreach (var item in bookList)
             {
-                if (JsonConvert.SerializeObject(item).Equals(jsonString))
+                if (item.IsEquals(book))
                 {
                     compare = true;
                     break;
                 }
             }
-            if (compare)
+            if (!compare)
             {
                 bookList.Add(book);
                 SaveJson();

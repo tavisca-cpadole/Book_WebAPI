@@ -11,3 +11,4 @@ C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\ne
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.RazorTargetAssemblyInfo.cache
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.dll
 C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.pdb
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\obj\Debug\netcoreapp2.2\WebApiDemo_5Sept19.csprojAssemblyReference.cache

@@ -1,17 +1,17 @@
 [
   {
-    "name": "Book #1",
     "author": "Neelesh",
+    "category": "Fiction",
     "id": 1,
-    "price": 40,
-    "category": "Fiction"
+    "name": "Book #1",
+    "price": 40
   },
   {
-    "author": "Ashvin",
-    "category": "Drama",
-    "id": 2,
     "name": "Book #2",
-    "price": 700
+    "author": "Ashvin",
+    "id": 2,
+    "price": 700,
+    "category": "Drama"
   },
   {
     "name": "Book #3",
@@ -19,5 +19,12 @@
     "id": 3,
     "price": 201,
     "category": "Romance"
+  },
+  {
+    "name": "Harry Potter",
+    "author": "Chinmay",
+    "id": 99,
+    "price": 90,
+    "category": "Horror"
   }
 ]

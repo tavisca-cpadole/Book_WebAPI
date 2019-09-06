@@ -1,17 +1,39 @@
-﻿using System.IO;
-using System.Runtime.Serialization.Json;
+﻿using WebApiDemo_5Sept19.Model;
 
 namespace WebApiDemo_5Sept19
 {
-    public static class ObjectSerializer
+    public static class ObjectComparer
     {
-        public static string Serialize(this object obj)
+        public static bool IsEquals(this Book object_A, Book Object_B)
         {
-            var serializer = new DataContractJsonSerializer(obj.GetType());
-            using (var ms = new MemoryStream())
+            if (object_A.name.Equals(Object_B.name))
             {
-                serializer.WriteObject(ms, obj);
-                return System.Text.Encoding.Default.GetString(ms.ToArray());
+                if (object_A.author.Equals(Object_B.author))
+                {
+                    if (object_A.price.Equals(Object_B.price))
+                    {
+                        if (object_A.category.Equals(Object_B.category))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
     }
