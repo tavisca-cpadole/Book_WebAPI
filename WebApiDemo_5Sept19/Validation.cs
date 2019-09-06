@@ -36,7 +36,7 @@ namespace WebApiDemo_5Sept19
                 && input.price.IntNegativeCheck()
                 && input.author.StringEmptyCheck()
                 && input.category.StringEmptyCheck()
-                && input.name.StringWithOnlyAlphabets())
+                && input.author.StringWithOnlyAlphabets())
             {
                 return true;
             }

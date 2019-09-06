@@ -2,7 +2,7 @@
 
 namespace WebApiDemo_5Sept19
 {
-    public static class ObjectComparer
+    public static class BookComparer
     {
         public static bool IsEquals(this Book object_A, Book Object_B)
         {
@@ -37,4 +37,7 @@ namespace WebApiDemo_5Sept19
             }
         }
     }
+
+
+
 }

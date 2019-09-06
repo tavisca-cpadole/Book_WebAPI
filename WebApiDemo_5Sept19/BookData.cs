@@ -26,7 +26,7 @@ namespace WebApiDemo_5Sept19
 
         public Response GetResponse(List<Book> books = null)
         {
-            if (books != null)
+            if (books != null || serverMessageList.Contains("Data redundant"))
                 return new Response(books, serverMessageList);
             return new Response(bookList, serverMessageList);
         }
