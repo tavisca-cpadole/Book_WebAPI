@@ -5,47 +5,46 @@ namespace WebApiDemo_5Sept19
     public class BookService : IBook
     {
         List<string> serverMessageList = new List<string>();
-
-        public Response GetResponse()
-        {
-            return new Response(null, serverMessageList);
-        }
-        public Response delete(int id)
+        int code=400;
+        public Response GetResponse() => new Response(null, serverMessageList,code);
+        public Response Delete(int id)
         {
             if (id.IntNegativeCheck())
-                return new BookData().delete(id);
+                return new BookData().Delete(id);
 
             serverMessageList.Add("Invalid Id, Id should be a positive number");
             return GetResponse();
         }
 
-        public Response get(int id)
+        public Response Get(int id)
         {
             if (id.IntNegativeCheck())
-                return new BookData().get(id);
+                return new BookData().Get(id);
 
             serverMessageList.Add("Invalid Id, Id should be a positive number");
             return GetResponse();
         }
 
-        public Response get()
+        public Response Get()
         {
-            return new BookData().get();
+            return new BookData().Get();
         }
 
-        public Response post(Book book)
+        public Response Post(Book book)
         {
-            if (book.BookObjectValidation())
-                return new BookData().post(book);
-            serverMessageList.Add("Invalid Data is passed");
+            List<string> message = book.BookObjectValidation();
+            if (message.Count==0)
+                return new BookData().Post(book);
+            serverMessageList.AddRange(message);
             return GetResponse();
         }
 
-        public Response put(Book book)
+        public Response Put(Book book)
         {
-            if (book.BookObjectValidation())
-                return new BookData().put(book);
-            serverMessageList.Add("Invalid Data is passed");
+            List<string> message = book.BookObjectValidation();
+            if (message.Count==0)
+                return new BookData().Put(book);
+            serverMessageList.AddRange(message);
             return GetResponse();
         }
     }

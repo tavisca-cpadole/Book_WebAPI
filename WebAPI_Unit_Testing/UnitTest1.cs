@@ -23,8 +23,8 @@ namespace WebAPI_Unit_Testing
 
             List<string> serverMessageList = new List<string>();
             LoadJson();
-            var expectedBook = new Response(bookList, serverMessageList);
-            var actualBook = new BookService().get();
+            Response expectedBook = new Response(bookList, serverMessageList,200);
+            Response actualBook = new BookService().Get();
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -39,8 +39,8 @@ namespace WebAPI_Unit_Testing
                new Book("Book #1","Neelesh",1,40,"Fiction") };
             LoadJson();
 
-            var expectedBook = new Response(books, serverMessageList);
-            var actualBook = new BookService().get(1);
+            Response expectedBook = new Response(books, serverMessageList,200);
+            Response actualBook = new BookService().Get(1);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -51,8 +51,8 @@ namespace WebAPI_Unit_Testing
             {
                 "Invalid Id, Id should be a positive number"
             };
-            var expectedBook = new Response(null, msg);
-            var actualBook = new BookService().get(-12);
+            Response expectedBook = new Response(null, msg,400);
+            Response actualBook = new BookService().Get(-12);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -66,8 +66,8 @@ namespace WebAPI_Unit_Testing
                 "Item Not Found"
             };
             // LoadJson();
-            var expectedBook = new Response(bookList, msg);
-            var actualBook = new BookService().get(8);
+            Response expectedBook = new Response(bookList, msg,404);
+            Response actualBook = new BookService().Get(8);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -89,10 +89,11 @@ namespace WebAPI_Unit_Testing
         [Fact]
         public void Check_If_Invalid_Object_Is_Passed()
         {
-            List<string> serverMessageList = new List<string>() { "Invalid Data is passed" };
+            List<string> serverMessageList = new List<string>();
+            serverMessageList.Add("Negative Id Is Entered, Please Enter Positive Id");
             LoadJson();
-            var expectedBook = new Response(null, serverMessageList);
-            var actualBook = new BookService().post(new Book("Book #1", "Neelesh", -121, 40, "Fiction"));
+            Response expectedBook = new Response(null, serverMessageList,400);
+            Response actualBook = new BookService().Post(new Book("Book #1", "Neelesh", -121, 40, "Fiction"));
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -101,9 +102,9 @@ namespace WebAPI_Unit_Testing
         {
             List<string> serverMessageList = new List<string>() { "Book Added" };
 
-            var actualBook = new BookService().post(book_to_add);
+            Response actualBook = new BookService().Post(book_to_add);
             LoadJson();
-            var expectedBook = new Response(bookList, serverMessageList);
+            Response expectedBook = new Response(bookList, serverMessageList,200);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -112,10 +113,10 @@ namespace WebAPI_Unit_Testing
         {
             List<string> serverMessageList = new List<string>() { "Data redundant" };
 
-            var actualBook = new BookService().post(new Book("Book #1", "Neelesh", 1, 40, "Fiction"));
+            Response actualBook = new BookService().Post(new Book("Book #1", "Neelesh", 1, 40, "Fiction"));
             //LoadJson();
 
-            var expectedBook = new Response(null, serverMessageList);
+            Response expectedBook = new Response(null, serverMessageList,400);
 
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
@@ -142,10 +143,20 @@ namespace WebAPI_Unit_Testing
         {
 
 
-            List<string> serverMessageList = new List<string>() { "Invalid Data is passed" };
+            List<string> serverMessageList = new List<string>();
+
+            //serverMessageList.Add("Name Entered Is Empty, Please Enter a name");          
+            serverMessageList.Add("Negative Id Is Entered, Please Enter Positive Id");                        
+            //serverMessageList.Add("Negative Price Is Entered, Please Enter Positive Price");                      
+            //serverMessageList.Add("Author Name Entered Is Empty, Please Enter a Valid Author name");            
+            //serverMessageList.Add("Category Name Entered Is Empty, Please Enter a Valid Category name");            
+            //serverMessageList.Add("Author Name Entered has digits in it, Author Name cannot have digits");
+
+
+
             LoadJson();
-            var expectedBook = new Response(null, serverMessageList);
-            var actualBook = new BookService().put(new Book("Book #1", "Neelesh", -121, 40, "Fiction"));
+            Response expectedBook = new Response(null, serverMessageList,400);
+            Response actualBook = new BookService().Put(new Book("Book #1", "Neelesh", -121, 40, "Fiction"));
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -154,8 +165,8 @@ namespace WebAPI_Unit_Testing
         {
             List<string> serverMessageList = new List<string>() { "Updated" };
 
-            var expectedBook = new Response(new List<Book>() { new Book("Book #1", "Neelesh", 1, 40, "Non-Fiction") }, serverMessageList);
-            var actualBook = new BookService().put(new Book("Book #1", "Neelesh", 1, 40, "Non-Fiction"));
+            Response expectedBook = new Response(new List<Book>() { new Book("Book #3", "Rameez", 3, 40, "Non-Fiction") }, serverMessageList,200);
+            Response actualBook = new BookService().Put(new Book("Book #3", "Rameez", 3, 40, "Non-Fiction"));
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -179,8 +190,8 @@ namespace WebAPI_Unit_Testing
         {
             List<string> serverMessageList = new List<string>() { "Item Not Found" };
             LoadJson();
-            var expectedBook = new Response(bookList, serverMessageList);
-            var actualBook = new BookService().delete(121);
+            Response expectedBook = new Response(bookList, serverMessageList,404);
+            Response actualBook = new BookService().Delete(121);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -189,8 +200,8 @@ namespace WebAPI_Unit_Testing
         {
             List<string> serverMessageList = new List<string>() { "Invalid Id, Id should be a positive number" };
             LoadJson();
-            var expectedBook = new Response(null, serverMessageList);
-            var actualBook = new BookService().delete(-124);
+            Response expectedBook = new Response(null, serverMessageList,400);
+            Response actualBook = new BookService().Delete(-124);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 
@@ -206,9 +217,9 @@ namespace WebAPI_Unit_Testing
             //LoadJson();
 
 
-            var actualBook = new BookService().delete(5);
+            Response actualBook = new BookService().Delete(5);
             LoadJson();
-            var expectedBook = new Response(bookList, serverMessageList);
+            Response expectedBook = new Response(bookList, serverMessageList,200);
             expectedBook.Should().BeEquivalentTo(actualBook);
         }
 

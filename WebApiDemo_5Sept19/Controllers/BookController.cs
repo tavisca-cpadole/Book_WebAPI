@@ -12,42 +12,59 @@ namespace WebApiDemo_5Sept19.Controllers
 
         // GET: api/Book
         [HttpGet]
-        public Response Get()
+        public ActionResult Get()
         {
-            return new BookService().get();
-        }
+            Response response = new BookService().Get();
+
+            return StatusCode(response.StatusCode, response);
+
+        } // GET: api/Book
+          // [Route(category / {bookName})]
+        //[HttpGet]
+        //[Route("api/Book/Category/{Genre}")]
+        //public ActionResult Get(string genre)
+        //{
+        //    //Response response = new BookService().Get();
+
+        //    return StatusCode(200, genre);
+
+        //}
 
 
 
 
         //GET: api/Book/5
         [HttpGet("{id}", Name = "Get")]
-        public Response Get(int id)
+        public ActionResult<Book> Get(int id)
         {
-            return new BookService().get(id);
+            Response response = new BookService().Get(id);
+            return StatusCode(response.StatusCode, response);
 
         }
 
         // POST: api/Book
         [HttpPost]
-        public Response Post([FromBody] Book value)
+        public ActionResult Post([FromBody] Book value)
         {
-            return new BookService().post(value);
+
+            Response response = new BookService().Post(value);
+            return StatusCode(response.StatusCode, response);
         }
 
         // PUT: api/Book/5
         [HttpPut]
-        public Response Put([FromBody] Book value)
+        public ActionResult Put([FromBody] Book value)
         {
-
-            return new BookService().put(value);
+            Response response = new BookService().Put(value);
+            return StatusCode(response.StatusCode, response);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public Response Delete(int id)
+        public ActionResult Delete(int id)
         {
-            return new BookService().delete(id);
+            Response response = new BookService().Delete(id);
+            return StatusCode(response.StatusCode, response);
         }
     }
 }

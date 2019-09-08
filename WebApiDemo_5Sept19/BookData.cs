@@ -8,7 +8,7 @@ namespace WebApiDemo_5Sept19
     public class BookData : IBook
     {
         List<Book> bookList = new List<Book>();
-
+        int code=200;
         List<string> serverMessageList = new List<string>();
         public BookData()
         {
@@ -24,13 +24,13 @@ namespace WebApiDemo_5Sept19
             }
         }
 
-        public Response GetResponse(List<Book> books = null)
+        public Response GetResponse(List<Book> books = null,int statusCode=200)
         {
-            if (books != null)
-                return new Response(books, serverMessageList);
-            return new Response(bookList, serverMessageList);
+            //if (books != null)
+            //    return new Response(books, serverMessageList);
+            return new Response(books, serverMessageList,statusCode);
         }
-        public Response delete(int id)
+        public Response Delete(int id)
         {
             for (int i = 0; i < bookList.Count; i++)
                 if (bookList[i].id == id)
@@ -40,12 +40,15 @@ namespace WebApiDemo_5Sept19
                     serverMessageList.Add("Item Deleted");
                 }
             if (serverMessageList.Count == 0)
+            {
                 serverMessageList.Add("Item Not Found");
+                code = 404;
+            }
 
-            return GetResponse();
+            return GetResponse(bookList,code);
         }
 
-        public Response get(int id)
+        public Response Get(int id)
         {
             List<Book> output = new List<Book>();
             foreach (var item in bookList)
@@ -53,14 +56,18 @@ namespace WebApiDemo_5Sept19
                 {
                     output.Add(item);
                     serverMessageList.Add(item.name);
+                    break;
                 }
             if (serverMessageList.Count == 0)
+            {
+                code = 404;
                 serverMessageList.Add("Item Not Found");
+            }
 
-            return GetResponse(output);
+            return GetResponse(output,code);
         }
 
-        public Response post(Book book)
+        public Response Post(Book book)
         {
             bool compare = false;
             foreach (var item in bookList)
@@ -75,42 +82,46 @@ namespace WebApiDemo_5Sept19
             {
                 bookList.Add(book);
                 SaveJson();
-
                 serverMessageList.Add("Book Added");
+                return GetResponse(bookList);
             }
             else
-
             {
+                code = 400;
                 serverMessageList.Add("Data redundant");
             }
-            return GetResponse();
+            return GetResponse(null,code);
         }
 
-        public Response put(Book book)
+        public Response Put(Book book)
         {
             // bookList = bookList.Where(b => b.id == id)?.Select(b => { b = book; return b; }).ToList() ?? bookList;
             List<Book> output = new List<Book>();
             for (int i = 0; i < bookList.Count; i++)
                 if (bookList[i].id == book.id)
                 {
-                    bookList[book.id].author = book.author;
-                    bookList[book.id].category = book.category;
-                    bookList[book.id].price = book.price;
-                    bookList[book.id].name = book.name;
+                    bookList[i].author = book.author;
+                    bookList[i].category = book.category;
+                    bookList[i].price = book.price;
+                    bookList[i].name = book.name;
                     SaveJson();
                     output.Add(book);
                     serverMessageList.Add("Updated");
+                    break;
                 }
             if (serverMessageList.Count == 0)
+            {
+                code = 400;
                 serverMessageList.Add("Invalid Id");
+            }
 
-            return GetResponse(output);
+            return GetResponse(output,code);
 
         }
 
-        public Response get()
+        public Response Get()
         {
-            return GetResponse();
+            return GetResponse(bookList);
         }
 
         public void SaveJson()

@@ -4,11 +4,11 @@ namespace WebApiDemo_5Sept19
 {
     public interface IBook
     {
-        Response get(int id);
-        Response put(Book book);
-        Response delete(int id);
-        Response post(Book book);
+        Response Get(int id);
+        Response Put(Book book);
+        Response Delete(int id);
+        Response Post(Book book);
 
-        Response get();
+        Response Get();
     }
 }
