@@ -5,8 +5,8 @@ namespace WebApiDemo_5Sept19
     public class BookService : IBook
     {
         List<string> serverMessageList = new List<string>();
-        int code=400;
-        public Response GetResponse() => new Response(null, serverMessageList,code);
+        int code = 400;
+        public Response GetResponse() => new Response(null, serverMessageList, code);
         public Response Delete(int id)
         {
             if (id.IntNegativeCheck())
@@ -33,7 +33,7 @@ namespace WebApiDemo_5Sept19
         public Response Post(Book book)
         {
             List<string> message = book.BookObjectValidation();
-            if (message.Count==0)
+            if (message.Count == 0)
                 return new BookData().Post(book);
             serverMessageList.AddRange(message);
             return GetResponse();
@@ -42,7 +42,7 @@ namespace WebApiDemo_5Sept19
         public Response Put(Book book)
         {
             List<string> message = book.BookObjectValidation();
-            if (message.Count==0)
+            if (message.Count == 0)
                 return new BookData().Put(book);
             serverMessageList.AddRange(message);
             return GetResponse();

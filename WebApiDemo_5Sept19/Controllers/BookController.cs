@@ -7,31 +7,15 @@ namespace WebApiDemo_5Sept19.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-
-
-
         // GET: api/Book
         [HttpGet]
         public ActionResult Get()
         {
             Response response = new BookService().Get();
-
+            //JsonFileLogger.WriteLog(new Log(response.StatusCode.ToString(), response));
             return StatusCode(response.StatusCode, response);
 
-        } // GET: api/Book
-          // [Route(category / {bookName})]
-        //[HttpGet]
-        //[Route("api/Book/Category/{Genre}")]
-        //public ActionResult Get(string genre)
-        //{
-        //    //Response response = new BookService().Get();
-
-        //    return StatusCode(200, genre);
-
-        //}
-
-
-
+        }
 
         //GET: api/Book/5
         [HttpGet("{id}", Name = "Get")]

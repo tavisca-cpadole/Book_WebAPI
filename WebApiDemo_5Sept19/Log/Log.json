@@ -1,0 +1,12 @@
+[
+  {
+    "Request": "REQUEST METHOD: GET, REQUEST BODY: Microsoft.AspNetCore.Server.IIS.Core.HttpRequestStream, REQUEST URL: /api/Book",
+    "Response": "200: {\"books\":[{\"name\":\"Book #1\",\"author\":\"Neelesh\",\"id\":1,\"price\":40,\"category\":\"Fiction\"},{\"name\":\"Book #1\",\"author\":\"Neelesh\",\"id\":2,\"price\":40,\"category\":\"Non-Fiction\"},{\"name\":\"Book #3\",\"author\":\"Manan\",\"id\":3,\"price\":201,\"category\":\"Romance\"},{\"name\":\"Book #3\",\"author\":\"Rameez\",\"id\":5,\"price\":40,\"category\":\"Non-Fiction\"},{\"name\":\"Chain Khuli Ki Main Khuli\",\"author\":\"Chacha Choudhary\",\"id\":11,\"price\":120,\"category\":\"aasdasd\"}],\"serverMessage\":[],\"statusCode\":200}",
+    "Time": "09-Sep-19 5:32:46 PM"
+  },
+  {
+    "Time": "09-Sep-19 5:34:11 PM",
+    "Request": "REQUEST METHOD: GET, REQUEST BODY: Microsoft.AspNetCore.Http.Internal.QueryCollection, REQUEST URL: /api/Book",
+    "Response": "200: {\"books\":[{\"name\":\"Book #1\",\"author\":\"Neelesh\",\"id\":1,\"price\":40,\"category\":\"Fiction\"},{\"name\":\"Book #1\",\"author\":\"Neelesh\",\"id\":2,\"price\":40,\"category\":\"Non-Fiction\"},{\"name\":\"Book #3\",\"author\":\"Manan\",\"id\":3,\"price\":201,\"category\":\"Romance\"},{\"name\":\"Book #3\",\"author\":\"Rameez\",\"id\":5,\"price\":40,\"category\":\"Non-Fiction\"},{\"name\":\"Chain Khuli Ki Main Khuli\",\"author\":\"Chacha Choudhary\",\"id\":11,\"price\":120,\"category\":\"aasdasd\"}],\"serverMessage\":[],\"statusCode\":200}"
+  }
+]

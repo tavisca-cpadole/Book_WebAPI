@@ -8,7 +8,7 @@ namespace WebApiDemo_5Sept19
     public class BookData : IBook
     {
         List<Book> bookList = new List<Book>();
-        int code=200;
+        int code = 200;
         List<string> serverMessageList = new List<string>();
         public BookData()
         {
@@ -24,11 +24,11 @@ namespace WebApiDemo_5Sept19
             }
         }
 
-        public Response GetResponse(List<Book> books = null,int statusCode=200)
+        public Response GetResponse(List<Book> books = null, int statusCode = 200)
         {
             //if (books != null)
             //    return new Response(books, serverMessageList);
-            return new Response(books, serverMessageList,statusCode);
+            return new Response(books, serverMessageList, statusCode);
         }
         public Response Delete(int id)
         {
@@ -45,7 +45,7 @@ namespace WebApiDemo_5Sept19
                 code = 404;
             }
 
-            return GetResponse(bookList,code);
+            return GetResponse(bookList, code);
         }
 
         public Response Get(int id)
@@ -64,7 +64,7 @@ namespace WebApiDemo_5Sept19
                 serverMessageList.Add("Item Not Found");
             }
 
-            return GetResponse(output,code);
+            return GetResponse(output, code);
         }
 
         public Response Post(Book book)
@@ -90,7 +90,7 @@ namespace WebApiDemo_5Sept19
                 code = 400;
                 serverMessageList.Add("Data redundant");
             }
-            return GetResponse(null,code);
+            return GetResponse(null, code);
         }
 
         public Response Put(Book book)
@@ -115,7 +115,7 @@ namespace WebApiDemo_5Sept19
                 serverMessageList.Add("Invalid Id");
             }
 
-            return GetResponse(output,code);
+            return GetResponse(output, code);
 
         }
 
