@@ -32,20 +32,16 @@ namespace WebApiDemo_5Sept19
 
         public Response Post(Book book)
         {
-            List<string> message = book.BookObjectValidation();
-            if (message.Count == 0)
-                return new BookData().Post(book);
-            serverMessageList.AddRange(message);
-            return GetResponse();
+
+
+            return new BookData().Post(book);
         }
 
         public Response Put(Book book)
         {
-            List<string> message = book.BookObjectValidation();
-            if (message.Count == 0)
-                return new BookData().Put(book);
-            serverMessageList.AddRange(message);
-            return GetResponse();
+
+
+            return new BookData().Put(book);
         }
 
 
