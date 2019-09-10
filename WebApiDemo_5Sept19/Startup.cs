@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApiDemo_5Sept19.Model;
 
 namespace WebApiDemo_5Sept19
 {
@@ -19,6 +21,8 @@ namespace WebApiDemo_5Sept19
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddTransient<IValidator<Book>, BookValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,8 @@
-﻿namespace WebApiDemo_5Sept19.Model
+﻿using ServiceStack.FluentValidation.Attributes;
+
+namespace WebApiDemo_5Sept19.Model
 {
+    [Validator(typeof(BookValidator))]
     public class Book
     {
         public Book(string name, string author, int id, int price, string category)
