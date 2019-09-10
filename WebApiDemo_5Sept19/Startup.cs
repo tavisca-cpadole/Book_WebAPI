@@ -1,10 +1,10 @@
-﻿using FluentValidation;
+﻿using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApiDemo_5Sept19.Model;
+using WebApiDemo_5Sept19.Controllers;
 
 namespace WebApiDemo_5Sept19
 {
@@ -22,7 +22,14 @@ namespace WebApiDemo_5Sept19
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddTransient<IValidator<Book>, BookValidator>();
+            //services.AddTransient<IValidator<Book>, BookValidator>();
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(BookModelFilterAttribute));
+            });
+            services.AddMvc().AddFluentValidation
+                (fv => fv.RegisterValidatorsFromAssemblyContaining<BookValidator>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

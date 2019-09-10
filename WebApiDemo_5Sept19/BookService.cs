@@ -32,15 +32,11 @@ namespace WebApiDemo_5Sept19
 
         public Response Post(Book book)
         {
-
-
             return new BookData().Post(book);
         }
 
         public Response Put(Book book)
         {
-
-
             return new BookData().Put(book);
         }
 

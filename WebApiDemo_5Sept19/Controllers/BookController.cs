@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using WebApiDemo_5Sept19.Model;
 
@@ -9,19 +8,12 @@ namespace WebApiDemo_5Sept19.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private readonly IValidator<Book> _bookValidator;
-
-        public BookController(IValidator<Book> bookValidator)
-        {
-            _bookValidator = bookValidator;
-        }
 
         // GET: api/Book
         [HttpGet]
         public ActionResult Get()
         {
             Response response = new BookService().Get();
-            //JsonFileLogger.WriteLog(new Log(response.StatusCode.ToString(), response));
             return StatusCode(response.StatusCode, response);
 
         }
@@ -39,17 +31,14 @@ namespace WebApiDemo_5Sept19.Controllers
 
         // POST: api/Book
         [HttpPost]
+        [BookModelFilter]
         public ActionResult Post([FromBody] Book value)
         {
-
-            //Response response = new BookService().Post(value);
-            //return StatusCode(response.StatusCode, response);
-            var validationResult = _bookValidator.Validate(value);
             List<string> response_message = new List<string>();
 
-            if (!validationResult.IsValid)
+            if (!ModelState.IsValid)
             {
-                foreach (var error in validationResult.Errors)
+                foreach (var error in ModelState.Values)
                     response_message.Add(error.ToString());
                 return StatusCode(400, response_message);
             }
@@ -62,23 +51,20 @@ namespace WebApiDemo_5Sept19.Controllers
 
         // PUT: api/Book/5
         [HttpPut]
+        [BookModelFilter]
         public ActionResult Put([FromBody] Book value)
         {
-            //Response response = new BookService().Put(value);
-            //return StatusCode(response.StatusCode, response);
-
-            var validationResult = _bookValidator.Validate(value);
             List<string> response_message = new List<string>();
 
-            if (!validationResult.IsValid)
+            if (!ModelState.IsValid)
             {
-                foreach (var error in validationResult.Errors)
+                foreach (var error in ModelState.Values)
                     response_message.Add(error.ToString());
                 return StatusCode(400, response_message);
             }
             else
             {
-                Response response = new BookService().Put(value);
+                Response response = new BookService().Post(value);
                 return StatusCode(response.StatusCode, response);
             }
         }

@@ -52,10 +52,11 @@ namespace WebApiDemo_5Sept19
             var buffer = new byte[Convert.ToInt32(request.ContentLength)];
 
             await request.Body.ReadAsync(buffer, 0, buffer.Length).ConfigureAwait(false);
+
             var bodyText = await new StreamReader(request.Body).ReadToEndAsync();
             request.Body.Position = 0;
 
-            return $"REQUEST METHOD: {request.Method}, REQUEST BODY: {request.Query}, REQUEST URL: {request.Path}";
+            return $"REQUEST METHOD: {request.Method}, REQUEST BODY: {bodyText}, REQUEST URL: {request.Path}";
         }
 
         private async Task<string> FormatResponse(HttpResponse response)
