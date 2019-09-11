@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "47e3e9d0c4b0ce7700cfaf36cf2710ddb25c3e34"
+    "signature": "f9cb5aba2d40bda2e2c3e528d5f0dea6abe95d40"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,6 +11,7 @@
           "FluentAssertions": "5.9.0",
           "FluentValidation": "8.4.0",
           "FluentValidation.AspNetCore": "8.4.0",
+          "FluentValidation.Mvc5": "8.4.0",
           "Microsoft.NET.Test.Sdk": "16.2.0",
           "WebApiDemo_5Sept19": "1.0.0",
           "xunit": "2.4.1",
@@ -62,6 +63,14 @@
         },
         "runtime": {
           "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.4.0.0"
+          }
+        }
+      },
+      "FluentValidation.Mvc5/8.4.0": {
+        "runtime": {
+          "lib/net45/FluentValidation.Mvc.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.4.0.0"
           }
@@ -2983,6 +2992,7 @@
           "FluentAssertions": "5.9.0",
           "FluentValidation": "8.4.0",
           "FluentValidation.AspNetCore": "8.4.0",
+          "FluentValidation.Mvc5": "8.4.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
           "Newtonsoft.Json": "12.0.2",
           "ServiceStack": "5.6.0"
@@ -3026,6 +3036,13 @@
       "sha512": "sha512-RZdsBuUJCXGhyjy/XY5E3Xk5VbbCEWc78Qp8Zez0YkTWfdlCuH1Ef2+rg0Ng2ayb7yhinLlSe1YxB9/7j9c7iQ==",
       "path": "fluentvalidation.dependencyinjectionextensions/8.4.0",
       "hashPath": "fluentvalidation.dependencyinjectionextensions.8.4.0.nupkg.sha512"
+    },
+    "FluentValidation.Mvc5/8.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uM5AHg/IZATUApF4d3hiKzaFtQb6ICBdNL+sXs+Jejvcm3GC172KIHntey9Yiqme21zkje9uTgKqDrz1hSqq8Q==",
+      "path": "fluentvalidation.mvc5/8.4.0",
+      "hashPath": "fluentvalidation.mvc5.8.4.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.1.0": {
       "type": "package",

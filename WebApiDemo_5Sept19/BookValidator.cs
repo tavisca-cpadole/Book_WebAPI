@@ -34,7 +34,7 @@ namespace WebApiDemo_5Sept19
             RuleFor(b => b.author)
                 .NotEmpty()
                 .WithMessage("Book Author Should Not Be Empty")
-                .Matches("[A-Za-z]")
+                .Matches(@"^[a-zA-Z\s]+$")
                 .WithMessage("Book Author Name Should Only Contain Letters");
 
         }
@@ -44,7 +44,7 @@ namespace WebApiDemo_5Sept19
             RuleFor(b => b.category)
                 .NotEmpty()
                 .WithMessage("Book Category Should Not Be Empty")
-                .Matches("[A-Za-z]")
+                .Matches(@"^[a-zA-Z\s]+$")
                 .WithMessage("Book Category Should Only Contain Letters");
 
         }

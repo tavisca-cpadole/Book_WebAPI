@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using WebApiDemo_5Sept19.Controllers;
 using WebApiDemo_5Sept19.Model;
 
 namespace WebApiDemo_5Sept19
@@ -32,6 +33,8 @@ namespace WebApiDemo_5Sept19
         }
         public Response Delete(int id)
         {
+            if (bookList.Count == 0)
+                return GetResponse(null, (int)HttpStatusCode.INTERNAL_SERVER_ERROR);
             for (int i = 0; i < bookList.Count; i++)
                 if (bookList[i].id == id)
                 {
@@ -42,7 +45,7 @@ namespace WebApiDemo_5Sept19
             if (serverMessageList.Count == 0)
             {
                 serverMessageList.Add("Item Not Found");
-                code = 404;
+                code = (int)HttpStatusCode.NOT_FOUND;
             }
 
             return GetResponse(bookList, code);
@@ -50,6 +53,9 @@ namespace WebApiDemo_5Sept19
 
         public Response Get(int id)
         {
+            if (bookList.Count == 0)
+                return GetResponse(null, (int)HttpStatusCode.INTERNAL_SERVER_ERROR);
+
             List<Book> output = new List<Book>();
             foreach (var item in bookList)
                 if (item.id == id)
@@ -60,7 +66,7 @@ namespace WebApiDemo_5Sept19
                 }
             if (serverMessageList.Count == 0)
             {
-                code = 404;
+                code = (int)HttpStatusCode.NOT_FOUND;
                 serverMessageList.Add("Item Not Found");
             }
 
@@ -69,6 +75,9 @@ namespace WebApiDemo_5Sept19
 
         public Response Post(Book book)
         {
+            if (bookList.Count == 0)
+                return GetResponse(null, (int)HttpStatusCode.INTERNAL_SERVER_ERROR);
+
             bool compare = false;
             foreach (var item in bookList)
             {
@@ -83,11 +92,11 @@ namespace WebApiDemo_5Sept19
                 bookList.Add(book);
                 SaveJson();
                 serverMessageList.Add("Book Added");
-                return GetResponse(bookList);
+                return GetResponse(bookList, (int)HttpStatusCode.CREATED);
             }
             else
             {
-                code = 400;
+                code = (int)HttpStatusCode.BAD_REQUEST;
                 serverMessageList.Add("Data redundant");
             }
             return GetResponse(null, code);
@@ -95,6 +104,8 @@ namespace WebApiDemo_5Sept19
 
         public Response Put(Book book)
         {
+            if (bookList.Count == 0)
+                return GetResponse(null, (int)HttpStatusCode.INTERNAL_SERVER_ERROR);
             // bookList = bookList.Where(b => b.id == id)?.Select(b => { b = book; return b; }).ToList() ?? bookList;
             List<Book> output = new List<Book>();
             for (int i = 0; i < bookList.Count; i++)
@@ -111,7 +122,7 @@ namespace WebApiDemo_5Sept19
                 }
             if (serverMessageList.Count == 0)
             {
-                code = 400;
+                code = (int)HttpStatusCode.BAD_REQUEST;
                 serverMessageList.Add("Invalid Id");
             }
 
@@ -121,6 +132,8 @@ namespace WebApiDemo_5Sept19
 
         public Response Get()
         {
+            if (bookList.Count == 0)
+                return GetResponse(null, (int)HttpStatusCode.INTERNAL_SERVER_ERROR);
             return GetResponse(bookList);
         }
 
@@ -131,6 +144,28 @@ namespace WebApiDemo_5Sept19
             File.WriteAllText(@"C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\WebApiDemo_5Sept19\Data\BookData.json", json);
         }
 
+        public Response GetWithCategory(string name)
+        {
+            if (bookList.Count == 0)
+                return GetResponse(null, (int)HttpStatusCode.INTERNAL_SERVER_ERROR);
 
+            List<Book> output = new List<Book>();
+            for (int i = 0; i < bookList.Count; i++)
+                if (bookList[i].category.ToLowerInvariant() == name.ToLowerInvariant())
+                {
+                    output.Add(bookList[i]);
+                    serverMessageList.Add($"List Of Books belonging to Category {name}");
+                    break;
+                }
+            if (serverMessageList.Count == 0)
+            {
+                code = (int)HttpStatusCode.BAD_REQUEST;
+                serverMessageList.Add("No Books With Such Category Exists");
+            }
+
+            return GetResponse(output, code);
+        }
     }
+
+
 }

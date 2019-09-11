@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using WebApiDemo_5Sept19.Controllers;
 using WebApiDemo_5Sept19.Model;
 namespace WebApiDemo_5Sept19
 {
     public class BookService : IBook
     {
+
         List<string> serverMessageList = new List<string>();
-        int code = 400;
+        int code = (int)HttpStatusCode.NOT_FOUND;
         public Response GetResponse() => new Response(null, serverMessageList, code);
         public Response Delete(int id)
         {
@@ -35,11 +37,18 @@ namespace WebApiDemo_5Sept19
             return new BookData().Post(book);
         }
 
+
         public Response Put(Book book)
         {
             return new BookData().Put(book);
         }
 
-
+        public Response GetWithCategory(string name)
+        {
+            if (name.StringEmptyCheck() && name.StringWithOnlyAlphabets() && name.IfGenreExists())
+                return new BookData().GetWithCategory(name);
+            serverMessageList.Add("Invalid Category/Genre, Please enter a valid Category/Genre");
+            return GetResponse();
+        }
     }
 }

@@ -1,9 +1,18 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace WebApiDemo_5Sept19
 {
     public static class Validation
     {
+        private static List<string> _genre = new List<string>()
+        {
+            { "fiction"},
+            { "non fiction"},
+            { "romance"},
+            { "science fiction"},
+            { "novel"}
+        };
         public static bool StringEmptyCheck(this string input)
         {
             if (input != null && input.Trim() != "")
@@ -26,6 +35,13 @@ namespace WebApiDemo_5Sept19
                 return false;
             return true;
 
+        }
+
+        public static bool IfGenreExists(this string genre)
+        {
+            if (_genre.Contains(genre.ToLowerInvariant()))
+                return true;
+            return false;
         }
 
         //public static List<string> BookObjectValidation(this Book input)

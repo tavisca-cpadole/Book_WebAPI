@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http.Internal;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace WebApiDemo_5Sept19
@@ -28,18 +29,13 @@ namespace WebApiDemo_5Sept19
 
                 context.Response.Body = responseBody;
 
-
                 await _next(context);
-
 
                 var response = await FormatResponse(context.Response);
 
-
-                //JsonFileLogger.WriteLog(new Log(request, response));
                 var Logger = LoggerFactory.GetLoggingSystem("json");
                 if (Logger != null)
                     Logger.WriteLog(new Log(request, response));
-
 
                 await responseBody.CopyToAsync(originalBodyStream);
             }
@@ -53,7 +49,7 @@ namespace WebApiDemo_5Sept19
 
             await request.Body.ReadAsync(buffer, 0, buffer.Length).ConfigureAwait(false);
 
-            var bodyText = await new StreamReader(request.Body).ReadToEndAsync();
+            var bodyText = Encoding.UTF8.GetString(buffer); ;
             request.Body.Position = 0;
 
             return $"REQUEST METHOD: {request.Method}, REQUEST BODY: {bodyText}, REQUEST URL: {request.Path}";
@@ -71,7 +67,7 @@ namespace WebApiDemo_5Sept19
             response.Body.Seek(0, SeekOrigin.Begin);
 
 
-            return $"{response.StatusCode}: {text}";
+            return $"RESPONSE STATUSCODE: {response.StatusCode}, RESPONSE BODY: {text}";
         }
     }
 

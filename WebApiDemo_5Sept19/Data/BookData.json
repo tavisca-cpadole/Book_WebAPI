@@ -15,23 +15,30 @@
   },
   {
     "name": "Book #3",
-    "author": "Manan",
-    "id": 3,
-    "price": 201,
-    "category": "Romance"
-  },
-  {
-    "name": "Book #3",
     "author": "Rameez",
-    "id": 5,
+    "id": 3,
     "price": 40,
     "category": "Non-Fiction"
   },
   {
     "name": "Chain Khuli Ki Main Khuli",
-    "author": "Chacha Choudhary",
-    "id": 121,
+    "author": "Heyas dasd",
+    "id": 12,
     "price": 120,
-    "category": "aasdasd"
+    "category": "asdasdsaddas"
+  },
+  {
+    "name": "Book #1",
+    "author": "Neelesh",
+    "id": -121,
+    "price": 40,
+    "category": "Fiction"
+  },
+  {
+    "name": "Harry Potter",
+    "author": "Chinmay",
+    "id": 99,
+    "price": 90,
+    "category": "Horror"
   }
 ]

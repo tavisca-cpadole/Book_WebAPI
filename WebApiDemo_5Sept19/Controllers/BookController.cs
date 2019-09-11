@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using WebApiDemo_5Sept19.Model;
 
 namespace WebApiDemo_5Sept19.Controllers
@@ -8,6 +7,13 @@ namespace WebApiDemo_5Sept19.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
+        [Route("category/{name}")]
+        [HttpGet]
+        public ActionResult GetWithCategory(string name)
+        {
+            Response response = new BookService().GetWithCategory(name);
+            return StatusCode(200, response);
+        }
 
         // GET: api/Book
         [HttpGet]
@@ -17,8 +23,6 @@ namespace WebApiDemo_5Sept19.Controllers
             return StatusCode(response.StatusCode, response);
 
         }
-
-
 
         //GET: api/Book/5
         [HttpGet("{id}", Name = "Get")]
@@ -34,13 +38,9 @@ namespace WebApiDemo_5Sept19.Controllers
         [BookModelFilter]
         public ActionResult Post([FromBody] Book value)
         {
-            List<string> response_message = new List<string>();
-
             if (!ModelState.IsValid)
             {
-                foreach (var error in ModelState.Values)
-                    response_message.Add(error.ToString());
-                return StatusCode(400, response_message);
+                return StatusCode((int)HttpStatusCode.BAD_REQUEST, ModelState);
             }
             else
             {
@@ -54,13 +54,9 @@ namespace WebApiDemo_5Sept19.Controllers
         [BookModelFilter]
         public ActionResult Put([FromBody] Book value)
         {
-            List<string> response_message = new List<string>();
-
             if (!ModelState.IsValid)
             {
-                foreach (var error in ModelState.Values)
-                    response_message.Add(error.ToString());
-                return StatusCode(400, response_message);
+                return StatusCode((int)HttpStatusCode.BAD_REQUEST, ModelState);
             }
             else
             {
@@ -76,5 +72,7 @@ namespace WebApiDemo_5Sept19.Controllers
             Response response = new BookService().Delete(id);
             return StatusCode(response.StatusCode, response);
         }
+
+
     }
 }
