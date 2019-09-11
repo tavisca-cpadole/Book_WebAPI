@@ -1,0 +1,12 @@
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\b\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.deps.json
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\b\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.runtimeconfig.json
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\b\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.runtimeconfig.dev.json
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\b\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.dll
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.csproj.CoreCompileInputs.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.RazorAssemblyInfo.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.RazorAssemblyInfo.cs
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.AssemblyInfoInputs.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.AssemblyInfo.cs
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.RazorTargetAssemblyInfo.cache
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.csproj.CopyComplete
+C:\Users\cpadole\source\repos\WebApiDemo_5Sept19\.vs\WebApiDemo_5Sept19\lut\0\i\WebApiDemo_5Sept19\Debug\netcoreapp2.2\WebApiDemo_5Sept19.dll
